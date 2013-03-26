@@ -1,0 +1,36 @@
+<h1>Listing videos</h1>
+<a href="uploads/1332251435_video_n.webm">asdasd</a>
+
+<%=session[:chave]%>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Coordinates</th>
+    <th>Address</th>
+    <th>Video</th>
+    <th>Title</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @videos.each do |video| %>
+  <tr>
+    <td><%= video.date %></td>
+    <td><%= video.coordinates %></td>
+    <td><%= video.address %></td>
+    <td><%= video.video %></td>
+    <td><%= video.title %></td>
+    <td><%= video.user_id %></td>
+    <td><%= link_to 'Show', video %></td>
+    <td><%= link_to 'Edit', edit_video_path(video) %></td>
+    <td><%= link_to 'Destroy', video, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Video', new_video_path %>
